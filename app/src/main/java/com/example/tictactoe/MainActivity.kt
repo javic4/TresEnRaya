@@ -280,7 +280,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         var j = GFG.findBestMove(fieldToBoard()).col
         var i = GFG.findBestMove(fieldToBoard()).row
-        buttons[i][j]?.setText("O")
+        buttons[i][j]?.setText("X")
     }
 
     override fun onClick(v: View) {
@@ -288,7 +288,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             return
         }
         if (player1Turn) {
-            v.setText("X")
+            v.setText("O")
         }
 
 
@@ -307,7 +307,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if (!player1Turn){
             var j = GFG.findBestMove(fieldToBoard()).col
             var i = GFG.findBestMove(fieldToBoard()).row
-            buttons[i][j]?.setText("O")
+            buttons[i][j]?.setText("X")
             player1Turn = !player1Turn
         }
     }
