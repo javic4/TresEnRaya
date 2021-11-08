@@ -254,7 +254,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private var player1Turn = true
 
-    private var roundCount = 0
+    private var roundCount = 1
 
     private var player1Points = 0
     private var player2Points = 0
@@ -289,16 +289,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
         if (player1Turn) {
             v.setText("O")
+            roundCount++
         }
 
-
-        roundCount++
-        if (checkForWin()) {
-            if (player1Turn) {
-                player1Wins()
-            } else {
-                player2Wins()
-            }
+        if (GFG.evaluate(fieldToBoard()) == 10) {
+            player2Wins()
         } else if (roundCount == 9) {
             draw()
         } else {
@@ -308,8 +303,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             var j = GFG.findBestMove(fieldToBoard()).col
             var i = GFG.findBestMove(fieldToBoard()).row
             buttons[i][j]?.setText("X")
+            roundCount++
+
+        }
+        if (GFG.evaluate(fieldToBoard()) == 10) {
+            player2Wins()
+        }else if (roundCount == 9) {
+            draw()
+        } else {
             player1Turn = !player1Turn
         }
+
+        println("asdf"+roundCount)
     }
 
     private fun checkForWin(): Boolean {
