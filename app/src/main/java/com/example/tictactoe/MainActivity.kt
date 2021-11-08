@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
 
-            // victoria posible en las columnas
+            //  victoria posible en las columnas
             for (col in 0..2) {
                 if (b[0][col] == b[1][col]
                     && b[1][col] == b[2][col]
